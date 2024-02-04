@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d965f044b2170f4a8e1d8bcfc8ecba4, type: 3}
   m_Name: Question 3
   m_EditorClassIdentifier: 
-  question: What century is known as the "Age of Exploration" in world history?
+  _question: What century is known as the "Age of Exploration" in world history?
+  _answers:
+  - The 18th century.
+  - The 16th century.
+  - The 15th century.
+  - The 17th century.
+  _correctAnswerIndex: 2

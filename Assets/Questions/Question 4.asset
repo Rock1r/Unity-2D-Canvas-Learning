@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d965f044b2170f4a8e1d8bcfc8ecba4, type: 3}
-  m_Name: Question 9
+  m_Name: Question 4
   m_EditorClassIdentifier: 
-  question: Which country was the first to officially recognize the independence
-    of the United States?
+  _question: Who was the pharaoh when the Great Pyramid of Giza was built in Ancient
+    Egypt?
+  _answers:
+  - Pharaoh Khufu.
+  - Pharaoh Tutankhamun.
+  - Pharaoh Ramses II.
+  - Pharaoh Hatshepsut.
+  _correctAnswerIndex: 0
