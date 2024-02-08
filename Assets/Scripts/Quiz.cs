@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
-using System.Reflection;
 
 public class Quiz : MonoBehaviour
 {
@@ -16,7 +13,7 @@ public class Quiz : MonoBehaviour
     [Header("Answers")]
     [SerializeField] private GameObject[] _answerButtons;
     private int _correctAnswerIndex;
-    private bool _answerDone = false;
+    private bool _answerDone = true;
 
     [Header("Button Colors")]
     [SerializeField] private Sprite _defaultButtonSprite;
@@ -36,7 +33,7 @@ public class Quiz : MonoBehaviour
     public bool _gameComplete;
 
 
-    void Start()
+    void Awake()
     {
         _timer = FindObjectOfType<Timer>();
         _score = FindObjectOfType<Score>();
@@ -49,6 +46,11 @@ public class Quiz : MonoBehaviour
         _timerImage.fillAmount = _timer._fillFraction;
         if (_timer._loadNextQuestion)
         {
+            if (_progressBar.value == _progressBar.maxValue)
+            {
+                _gameComplete = true;
+                return;
+            }
             GetNextQuestion();
             _timer._loadNextQuestion = false;
             _answerDone = false;
@@ -67,10 +69,6 @@ public class Quiz : MonoBehaviour
         SetButtonsState(false);
         _timer.CancelTimer();
         _scoreText.text = $"Score:" + _score.CalculateScore() + "%";
-        if (_progressBar.value == _progressBar.maxValue)
-        {
-            _gameComplete = true;
-        }
     }
 
     private void GetNextQuestion()
